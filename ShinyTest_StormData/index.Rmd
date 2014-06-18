@@ -1,0 +1,121 @@
+---
+title       : Shiny App Test with Storm Data
+subtitle    : 
+author      : LaSurprise
+job         : My Job
+framework   : io2012    # {io2012, html5slides, shower, dzslides, ...}
+highlighter : highlight.js  # {highlight.js, prettify, highlight}
+hitheme     : tomorrow      # 
+widgets     : [bootstrap, shiny, interactive]           # {mathjax, quiz, bootstrap}
+mode        : selfcontained # {standalone, draft}
+---
+
+### Application documentation
+
+In order to run correctly this application, make sure that you have all things OK before.    
+The more recent version of R must be installed on your computer.   
+Useful packages have to be installed and loaded.   
+Files used must be on the working directory.    
+
+#### Install useful packages.  
+ 
+        * install.packages("devtools")    
+        * require(devtools)    
+        * install_github(c('slidify', 'slidifyLibraries'), 'ramnathv', ref = 'dev')   
+        * install_github('rCharts', 'ramnathv')    
+        * install_github('shiny', 'rstudio')  
+ 
+#### Copy these files in your working directory : 
+        * ecocost.rds
+        * fatalities.rds
+        * injuries.rds
+        * TrendData.rds
+        * server.R
+        * ui.R
+        
+#### Using RStudio, load these packages :
+        * shiny
+        * slidify
+        * slidifyLibraries
+        * XML 
+        
+#### Type runApp() to run apllication with shiny.
+
+#### Type runDeck() to run apllication with slidify.
+
+### Interactive Console
+
+You can play by yourself, nothing complicated.
+
+```{r opts.label = 'shiny', cache=FALSE}
+# Define UI
+shinyUI(pageWithSidebar(
+        
+        # Application title
+        headerPanel("Shiny App Test"),
+        
+        # Sidebar with controls to select a dataset and specify
+        # the number of observations to view
+        sidebarPanel(
+                flowLayout(
+                selectInput(
+                        "plotType", "Category",
+                        c("None", "More Harmful" = "global",
+                          "Trend" = "trend"), selected = "trend"),
+                selectInput("outcome", "Outcome",
+                            choices = c("None","Fatalities", "Injuries", "Eco Cost"), selected = "Fatalities")
+                ),
+                h5('===================='),
+                flowLayout(
+                radioButtons("col1", "Fatalities",
+                                   c("Blue" = "blue",
+                                     "Red" = "red",
+                                     "Yellow"="yellow",
+                                     "Green" = "green",
+                                     "Grey" = "grey",
+                                     "Orange" = "orange",
+                                     "Black" = "black"), selected = "red"), 
+                radioButtons("col2", "Injuries",
+                             c("Blue" = "blue",
+                               "Red" = "red",
+                               "Yellow"="yellow",
+                               "Green" = "green",
+                               "Grey" = "grey",
+                               "Orange" = "orange",
+                               "Black" = "black"), selected = "orange"),
+                radioButtons("col3", "Eco Cost",
+                             c("Blue" = "blue",
+                               "Red" = "red",
+                               "Yellow"="yellow",
+                               "Green" = "green",
+                               "Grey" = "grey",
+                               "Orange" = "orange",
+                               "Black" = "black"), selected = "grey")
+                ),
+                h5('===================='),
+                h4('Set Category or Outcome = "None"'),
+                flowLayout(
+                        checkboxGroupInput("col", "Colors :",
+                                           c("Blue" = "4",
+                                             "Red" = "2",
+                                             "Yellow"="7",
+                                             "Green" = "3",
+                                             "Grey" = "8",
+                                             "Black" = "1")),
+                        sliderInput("value", "Slider :", 1, 20, 7)
+                        
+                )
+                
+                               
+        ),
+                
+                # Show a plot of the generated distribution
+                mainPanel( 
+                        plotOutput('newPlot')
+                        
+                )
+))
+
+```
+---
+
