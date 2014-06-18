@@ -1,4 +1,4 @@
-# Define UI
+## Define UI
 shinyUI(pageWithSidebar(
         
         # Application title

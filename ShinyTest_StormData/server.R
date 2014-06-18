@@ -1,6 +1,6 @@
 library(UsingR)
 library("lattice")
-##
+
 setwd( "C:/Data Scientist/9-Dev Data Tool/Project/ShinyTest_StormData")
 
 fatalities <- readRDS("fatalities.rds")
