@@ -1,4 +1,4 @@
-## Our First shiny Application : "ShinyTest_StormData"
+## Our First Shiny Application : "ShinyTest_StormData"
 
   
 The goal of this work was to develop and document a shiny application.
