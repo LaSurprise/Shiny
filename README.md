@@ -22,6 +22,10 @@ Some features have been added just to manipulate sliders and others kind of inpu
 2. Open an run Doc.Rmd with RStudio    
 
 ## Result
-Tests were perfect with RStudio.  
+Tests were perfect with RStudio.    
+
+
+
+
  
 
