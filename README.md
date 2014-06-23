@@ -10,9 +10,7 @@ You can also choose outcome to display : fatalities, injuries, economic cost.
 
 Some features have been added just to manipulate sliders and others kind of input.  
 
-Shiny Application has two parts : ui.R and server.R files  
-
-Doc.md gives more details on what you need to do so that everything will be OK.   
+Doc.Rmd gives more details on what you need to do so that everything will be OK.   
 
 Tests were perfect with RStudio.   
 

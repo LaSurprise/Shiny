@@ -1,0 +1,94 @@
+---
+title       : Shiny App Test with Storm Data
+subtitle : Slidify .....Hum !!!!
+runtime: shiny
+output: ioslides_presentation
+---
+
+## Synopsis
+The goal of this work was to develop and document a shiny application : "Shiny App Test with Storm Data".  
+In order to reach this goal, we used and processed data from the U.S. National Oceanic and Atmospheric Administration's (NOAA) storm database. 
+
+We specially worked with data from 1950 to 2011. 
+ 
+With this application, you can display the most harmful events or the trend since 1950.  
+You can also choose outcome to display : fatalities, injuries, economic cost.  
+
+Some features have been added just to manipulate sliders and others kind of input.  
+
+Click on the left/rigth side of the slide when the mouse pointer change to see the next/previous slide.  
+
+Click here to launch the application [Shiny App Test with Storm Data](http://lasurprise.shinyapps.io/ShinyTest_StormData)
+
+---
+##### You can play by yourself. Storm Data are inactive here
+```{r, echo=FALSE}
+inputPanel(
+                flowLayout(
+                selectInput(
+                        "plotType", "Category",
+                        c("None", "More Harmful" = "global",
+                          "Trend" = "trend"), selected = "None"),
+                selectInput("outcome", "Outcome",
+                            choices = c("None","Fatalities", "Injuries", "Eco Cost"), selected = "None")
+                ),
+                flowLayout(
+                radioButtons("col1", "Fatalities",
+                                   c("Red" = "red",
+                                     "Yellow"="yellow",
+                                     "Orange" = "orange"), selected = "red"), 
+                radioButtons("col2", "Injuries",
+                             c("Blue" = "blue",
+                               "Yellow"="yellow",
+                               "Orange" = "orange"), selected = "orange"),
+                radioButtons("col3", "Eco Cost",
+                             c("Green" = "green",
+                               "Grey" = "grey",
+                               "Black" = "black"), selected = "grey")
+                ),
+                flowLayout(
+                        checkboxGroupInput("col", "Colors For None :",
+                                           c("Blue" = "4",
+                                             "Red" = "2",
+                                             "Green" = "3")),
+                        sliderInput("value", "Slider :", 1, 20, 4)
+                        
+                ) 
+)
+
+renderPlot({
+  par(mfrow=c(1,2))
+        plot(c(0,as.numeric(input$value)), c(0,as.numeric(input$value)), type="l", lwd=7, xlab="", ylab="",
+        main = "Select colors you want and play with slider !!! .... Just for fun")
+        for (i in 1:length(input$col))
+         lines(c(i,as.numeric(input$value)), c(i,as.numeric(input$value)), type="l", col=input$col[i], lwd=7, xlab="", ylab="")
+        plot(c(0,as.numeric(input$value)), c(as.numeric(input$value),0), type="l", col="orange", lwd=7, xlab="", ylab="")
+        for (i in 1:length(input$col))
+         lines(c(i,as.numeric(input$value)), c(as.numeric(input$value),i), type="l", col=input$col[i], lwd=7, xlab="", ylab="") 
+})
+```
+
+## Run the application on your computer
+
+If you want to run this application on your computer, fork this github repository and clone it on your computer :   
+https://github.com/LaSurprise/Shiny.git.    
+
+Project directory is "ShinyTest_StormData"   
+
+In order to run correctly this application, make sure that you have all things OK before.   
+
+The more recent version of R must be installed on your computer.   
+
+Useful packages have to be installed and loaded.   
+
+Files used must be on the working directory.    
+
+## Install and load useful packages.  
+* install.packages("devtools")    
+* require(devtools)       
+* install_github('shiny', 'rstudio')  
+* library("shiny")
+        
+        
+### Type runApp() to run apllication with shiny.
+
