@@ -21,7 +21,7 @@ Click on the left/rigth side of the slide when the mouse pointer change to see t
 Click here to launch the application [Shiny App Test with Storm Data](http://lasurprise.shinyapps.io/ShinyTest_StormData)
 
 ---
-##### You can play by yourself. Storm Data are inactive here
+##### Play by yourself. Storm Data are inactive here
 ```{r, echo=FALSE}
 inputPanel(
                 flowLayout(

@@ -12,5 +12,6 @@ Some features have been added just to manipulate sliders and others kind of inpu
 
 Doc.Rmd gives more details on what you need to do so that everything will be OK.   
 
-Tests were perfect with RStudio.   
+Tests were perfect with RStudio.  
+ 
 
