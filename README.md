@@ -11,11 +11,14 @@ Some features have been added just to manipulate sliders and others kind of inpu
 
 ## Visualize Slides : Option 1
 
+http://lasurprise.shinyapps.io/ShinyStormDataSlides/Doc.Rmd 
+
+## Visualize Slides : Option 2
 1. Open this repo : https://github.com/LaSurprise/Shiny.git
 2. Copy and save Doc.Rmd in a R Markdown/Shiny Presentation
 3. Run the document with RStudio
 
-## Visualize Slides : Option 2
+## Visualize Slides : Option 3
 
 1. Fork the repo on your computer
  : a directory named Shiny will be created with all files used in this project      
