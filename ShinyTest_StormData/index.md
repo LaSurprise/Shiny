@@ -10,6 +10,13 @@ widgets     : [bootstrap, shiny, interactive]           # {mathjax, quiz, bootst
 mode        : selfcontained # {standalone, draft}
 ---
 
+
+Read-And-Delete1.Edit YAML front matter
+2.Write using R Markdown
+3.Use an empty line followed by three dashes to separate slides!
+
+--- .class #id 
+
 ### Application documentation
 
 In order to run correctly this application, make sure that you have all things OK before.    
